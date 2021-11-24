@@ -1,6 +1,8 @@
 const BaseObject = require('../baseObject');
 const MainHeader = require('../controls/mainHeader');
-//const mainHeader = new MainHeader();
+const mainHeader = new MainHeader();
+const DropDown = require('../controls/dropDown');
+const dropD = new DropDown();
 
 class BasePage extends BaseObject {
     constructor(){
@@ -12,9 +14,15 @@ class BasePage extends BaseObject {
         await browser.get(`${this.baseUrl}${url}`);
     }
 
-    // get header() {
-    //     return mainHeader.getHeader();
-    // }
+    get header() {
+        return mainHeader.getHeader();
+    }
+
+    get dropDown() {
+        return dropD.getDD();
+    }
+
+
 }
 
 module.exports = BasePage;

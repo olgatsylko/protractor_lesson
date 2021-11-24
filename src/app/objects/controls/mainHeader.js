@@ -1,35 +1,35 @@
-const BaseObject = require("../baseObject");
+const BaseObject = require('../baseObject');
 
-class MainHeader extends BaseObject{
+class MainHeader extends BaseObject {
+    // quickStart = '#drop1';
+    // protractorSetup = '#drop2';
   
     constructor(){
         super();
         this._header = element(by.css('.navbar-collapse'));
-       // this.container = element(by.css('.navbar-collapse'));
-        this.mainItems = this._header.all(by.css('.navbar-nav>li'));
+        this.mainItems = this._header.all(by.css('.navbar-nav>li>a'));//element(by.css('.navbar-nav')).all(by.css('li>a'));
     }
-
-    // getHeader () {
-    //     if (!this._header) {
-    //         this._header = new MainHeader();
-    //     }
-    //     return this._header;
-    // }
-
+    
+    getHeader () {
+        if (!this._header) {
+            return new MainHeader();
+        }
+        return this;
+    }
 
     async clickMenuItem (index) {
         let items = await $('.navbar-nav').all(by.css('.navbar-nav>li>a'));
         items[index].click();     
     }
 
-    // async clickMenuItem (index) { 
-    //     await this.mainItems[index].click();     
+    // async clickQuickStart() {
+    //     await element(by.css(this.quickStart)).click();
     // }
 
-    async selectFromDropDown (index) {
-        let itemsD = await $('.navbar-nav .dropdown').all(by.css('.dropdown-menu a'));
-        itemsD[index].click();
-    }
+    // async clickProtractorSetup() {
+    //     await element(by.css(this.protractorSetup)).click();
+    // }
+
 }
 
 module.exports = MainHeader;
