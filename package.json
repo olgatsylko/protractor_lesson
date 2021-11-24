@@ -1,0 +1,24 @@
+{
+  "name": "protractor_lesson",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "protractor src/configuration/conf.js",
+    "update": "webdriver-manager update",
+    "start": "webdriver-manager start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/olgatsylko/protractor_lesson.git"
+  },
+  "author": "Olga",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/olgatsylko/protractor_lesson/issues"
+  },
+  "homepage": "https://github.com/olgatsylko/protractor_lesson#readme",
+  "dependencies": {
+    "protractor": "^7.0.0"
+  }
+}
