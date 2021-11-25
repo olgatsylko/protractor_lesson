@@ -1,9 +1,8 @@
 const BaseObject = require('../baseObject');
 
 class MainHeader extends BaseObject {
-    // quickStart = '#drop1';
-    // protractorSetup = '#drop2';
-  
+    #quickStart = '#drop1';
+
     constructor(){
         super();
         this._header = element(by.css('.navbar-collapse'));
@@ -17,19 +16,9 @@ class MainHeader extends BaseObject {
         return this;
     }
 
-    async clickMenuItem (index) {
-        let items = await $('.navbar-nav').all(by.css('.navbar-nav>li>a'));
-        items[index].click();     
+    async clickQuickStart() {
+        await element(by.css(this.#quickStart)).click();
     }
-
-    // async clickQuickStart() {
-    //     await element(by.css(this.quickStart)).click();
-    // }
-
-    // async clickProtractorSetup() {
-    //     await element(by.css(this.protractorSetup)).click();
-    // }
-
 }
 
 module.exports = MainHeader;

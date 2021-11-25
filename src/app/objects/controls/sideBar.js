@@ -5,11 +5,12 @@ class SideBar extends BaseObject {
         super();
         this.search = element(by.css('.form-group'));
         this.searchItems = this.search.all(by.css('.list-unstyled>li>a'));
+        this.barItems = '.list-unstyled>li>a';
         this.pauseVal = element(by.cssContainingText('.col-sm-9', 'browser.pause'))
     }
 
     async selectOption(text){
-        await element(by.cssContainingText('.list-unstyled>li>a', text)).click();
+        await element(by.cssContainingText(this.barItems, text)).click();
     }
     getBar() {
         if (!this.search) {

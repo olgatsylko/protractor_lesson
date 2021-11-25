@@ -1,11 +1,10 @@
-const { browser } = require('protractor');
 const PageFactory = require ('../app/objects/pages/pageFactory');
 require ('jasmine');
 
 describe('Protractor API page', function() {
     let pf = null;
 
-    beforeAll (async function () {
+    beforeAll(async function () {
         browser.manage().window().maximize();
         pf = new PageFactory();
     });

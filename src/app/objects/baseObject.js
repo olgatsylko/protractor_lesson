@@ -1,4 +1,3 @@
-
 class BaseObject{
 
     async isDisplayed(element) {
@@ -18,22 +17,16 @@ class BaseObject{
         return arr;
     }
 
-    async clickBy (elements, text){
-        await this[elements].filter(async function (elem) {
-            return (await elem.getText()).trim() === text;
-        }).click();
+    async clickBy (elements, textOrPosition){
+        if (typeof textOrPosition === 'number') {
+            let arr = await this[elements];
+            arr[textOrPosition].click();
+        } else {
+            await this[elements].filter(async function (elem) {
+                return (await elem.getText()).trim() === textOrPosition;
+            }).click();
+        }
     }
-
-    // async clickBy (elements, textOrPosition){
-    //     if (typeof textOrPosition === 'number') {
-    //         await this[elements][textOrPosition].click();
-    //     } else {
-    //         await this[elements].filter(async function (elem) {
-    //             return (await elem.getText()).trim() === textOrPosition;
-    //         }).click();
-    //     }
-    // }
-
 }
 
 
